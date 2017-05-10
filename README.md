@@ -8,18 +8,20 @@ Dynamically generate polyfill bundles when needed
 ```
 
 ## Usage
+
 NTK works by creating an express router with one route (/polyfills).
 Scripts can be imported with a query in this format:
 ```html
-  <script src="/polyfills?fill=id&fill=other_id"></script>
+  <script src="/polyfills?fill=id&amp;fill=other_id"></script>
 ```
 
-The modules are loaded from your project's `package.json`.
-To map a ids to polyfills, add a polyfill object as such:
+The modules are loaded according to your project's `package.json`.
+To map a ids to polyfills, add a polyfill source as such:
 ```json
   {
-    polyfills: {
-      "fetch": "node_modules/whatwg-fetch/fetch.js"
+    "polyfills": {
+      "id": "path/to/the/polyfill",
+      "other_id": "another/path/another/fill"
     }
   }
 ```
