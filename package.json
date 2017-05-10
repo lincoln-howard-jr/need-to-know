@@ -1,0 +1,24 @@
+{
+  "name": "need-to-know",
+  "version": "0.0.0",
+  "description": "Dynamically generate polyfill bundles when needed",
+  "main": "index.js",
+  "scripts": {
+    "test": "!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lincoln-howard-jr/need-to-know.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lincoln-howard-jr/need-to-know/issues"
+  },
+  "homepage": "https://github.com/lincoln-howard-jr/need-to-know#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "browserify": "^14.3.0",
+    "express": "^4.15.2"
+  }
+}
