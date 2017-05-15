@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "Dynamically generate polyfill bundles when needed",
   "main": "index.js",
-  "scripts": {
-    "test": "!"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lincoln-howard-jr/need-to-know.git"

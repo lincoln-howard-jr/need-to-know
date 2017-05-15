@@ -1,6 +1,7 @@
 # need-to-know (NtK)
 Dynamically generate polyfill bundles when needed
 Implementation of an idea by [Phillip Walton](https://philipwalton.com/about/)
+...
 [Read More](https://philipwalton.com/articles/loading-polyfills-only-when-needed/)
 
 ## Installation
