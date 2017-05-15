@@ -1,12 +1,12 @@
+// imports
 let express = require ('express');
 let browserify = require ('browserify');
-let bodyParser = require ('body-parser');
-
+// get parent package.json
 let parent = module.parent;
 parent.pkg = parent.require ('./package.json');
-
-let polyfills = parent.pkg.polyfills; 
-
+// polyfill list must be defined
+let polyfills = parent.pkg.polyfills;
+// bundle polyfills with browserify
 function generate (arr) {
   let ret = browserify ();
   arr.forEach ((polyfill) => {
@@ -15,17 +15,16 @@ function generate (arr) {
   });
   return ret;
 }
-
+// express middleware
 let router = express.Router ();
-
-router.use (bodyParser ());
-
+// the end -- polyfill requests in the query are bundled and sent back
 router.get ('/polyfills', (req, res) => {
   let list = req.query.fill;
   if (!list) return res.status (400).end ();
-  if (!list.length) list = [list];
+  if (!Array.isArray (list)) list = [list];
+  console.log (list);
   res.header ('Content-Type', 'application/javascript');
-  generate (req.query.polyfills).bundle ().pipe (res)
+  generate (list).bundle ().pipe (res)
 });
-
+// export the router, can be mounted anywhere
 module.exports = router;
